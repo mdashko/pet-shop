@@ -1,0 +1,22 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	padding: 1em 0;
+	&__logo-container {
+		cursor: pointer;
+		display: flex;
+		@include center-elements;
+	}
+	&__navbar {
+		display: flex;
+		@include center-elements;
+	}
+	&__buttons {
+		display: flex;
+		@include center-elements;
+	}
+}

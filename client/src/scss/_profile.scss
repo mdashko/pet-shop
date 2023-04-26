@@ -1,0 +1,18 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	@include center-elements;
+	&__user-info {
+		display: flex;
+		flex-direction: column;
+		@include center-elements;
+		width: 70%;
+		&_img {
+			width: 15%;
+		}
+	}
+}

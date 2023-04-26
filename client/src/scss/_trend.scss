@@ -1,0 +1,14 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+.trend {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	margin: 0 0.5em;
+	&__text {
+		display: flex;
+		flex-direction: column;
+	}
+}

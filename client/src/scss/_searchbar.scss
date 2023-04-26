@@ -1,0 +1,15 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+.searchBar {
+	margin: 0.5em 0;
+	&_input {
+		background: #f2f3f2;
+		border: none;
+		border-radius: 1em;
+		width: 20em;
+		height: 5em;
+		padding-left: 2.5em;
+	}
+}

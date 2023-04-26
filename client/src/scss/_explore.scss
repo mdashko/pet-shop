@@ -1,0 +1,10 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+.explore {
+	display: flex;
+	flex-direction: column;
+	@include center-elements;
+	
+}
