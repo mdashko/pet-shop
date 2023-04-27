@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "../UI/Text";
+import { Text } from "../../UI/Text";
 
 export const User = ({ image, heading, preHeading }) => {
 	return (

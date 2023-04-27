@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Trend } from "../components/Trend";
-import { Text } from "../UI/Text";
-import { images } from "../images";
+import { Header } from "../../components/Header/Header";
+import { Trend } from "../../components/Trend/Trend";
+import { Text } from "../../UI/Text/Text";
+import { images } from "../../images";
 
 export const Home = () => {
 	return (

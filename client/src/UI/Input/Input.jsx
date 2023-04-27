@@ -1,5 +1,5 @@
 import React from "react";
-import { colors } from "../helpers";
+import { colors } from "../../helpers";
 
 export const Input = ({
 	placeholder,
@@ -9,17 +9,10 @@ export const Input = ({
 }) => {
 	return (
 		<input
+			className="input"
 			required={required}
 			placeholder={placeholder}
 			type={type}
-			style={{
-				width: "15em",
-				height: "2.5em",
-				borderRadius: "1em",
-				border: `0.05em solid  ${colors["orangeColor"]}`,
-				padding: "0 1em",
-				margin: "0.5em 0",
-			}}
 			onChange={onChange}
 		/>
 	);

@@ -1,7 +1,7 @@
 import React from "react";
-import { images } from "../images";
-import { Text } from "../UI/Text";
-import { Button } from "../UI/Button";
+import { images } from "../../images";
+import { Text } from "../../UI/Text/Text";
+import { Button } from "../../UI/Button/Button";
 import { Link } from "react-router-dom";
 
 export const Header = () => {

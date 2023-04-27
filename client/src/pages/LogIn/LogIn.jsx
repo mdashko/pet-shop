@@ -1,40 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Text } from "../UI/Text";
-import { Button } from "../UI/Button";
-import { Input } from "../UI/Input";
+import { Header } from "../../components/Header/Header";
+import { Text } from "../../UI/Text/Text";
+import { Button } from "../../UI/Button/Button";
+import { Input } from "../../UI/Input/Input";
 
 export const LogIn = () => {
-	const [data, setData] = useState({ email: "", password: "" });
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 
-	const [user, setUser] = useState({});
+	// const [user, setUser] = useState({});
 
-	function getToken() {
-		const tokenString = localStorage.getItem("token");
-		const userToken = JSON.parse(tokenString);
-		return userToken?.token;
-	}
+	// function getToken() {
+	// 	const tokenString = localStorage.getItem("token");
+	// 	const userToken = JSON.parse(tokenString);
+	// 	return userToken?.token;
+	// }
 
 	const navigate = useNavigate();
 
 	const handleEmail = (e) => setEmail(e.target.value);
 	const handlePassword = (e) => setPassword(e.target.value);
 
-	useEffect(() => {
-		setData({ ...data, email: email, password: password });
-	}, [email, password]);
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			const url = "http://localhost:5001/api/auth";
-			const { data: res } = await axios.post(url, data);
+			const { data: res } = await axios.post(url, {
+				email: email,
+				password: password,
+			});
 			localStorage.setItem("token", res.data);
 			// setUser(getToken());
 			navigate("/");

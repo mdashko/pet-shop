@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Text } from "../UI/Text";
-import { Button } from "../UI/Button";
-import { Input } from "../UI/Input";
+import { Header } from "../../components/Header/Header";
+import { Text } from "../../UI/Text/Text";
+import { Button } from "../../UI/Button/Button";
+import { Input } from "../../UI/Input/Input";
 
 export const SignUp = () => {
-	const [data, setData] = useState({
-		fullName: "",
-		email: "",
-		password: "",
-	});
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -24,15 +19,15 @@ export const SignUp = () => {
 	const handleEmail = (e) => setEmail(e.target.value);
 	const handlePassword = (e) => setPassword(e.target.value);
 
-	useEffect(() => {
-		setData({ ...data, fullName: fullName, email: email, password: password });
-	}, [fullName, email, password]);
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			const url = "http://localhost:5001/api/users";
-			const { data: res } = await axios.post(url, data);
+			const { data: res } = await axios.post(url, {
+				fullName: fullName,
+				email: email,
+				password: password,
+			});
 			navigate("/LogIn");
 			console.log(res.message);
 		} catch (error) {

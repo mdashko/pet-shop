@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "../UI/Text";
-import { Button } from "../UI/Button";
-import { images } from "../images";
+import { Text } from "../../UI/Text/Text";
+import { Button } from "../../UI/Button/Button";
+import { images } from "../../images";
 
 export const Profile = ({}) => {
 	const handleLogout = () => {

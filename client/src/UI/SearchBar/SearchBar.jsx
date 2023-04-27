@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { images } from "../images";
-import { colors, fonts } from "../helpers";
+import { images } from "../../images";
+import { colors, fonts } from "../../helpers";
 
 export const SearchBar = () => {
 	return (

@@ -1,6 +1,6 @@
 import React from "react";
-import { Header } from "../components/Header";
-import { SearchBar } from "../UI/SearchBar";
+import { Header } from "../../components/Header/Header";
+import { SearchBar } from "../../UI/SearchBar/SearchBar";
 
 export const Explore = () => {
 	return (
@@ -10,9 +10,7 @@ export const Explore = () => {
 				<section className="explore__search-bar">
 					<SearchBar />
 				</section>
-				<section>
-					
-				</section>
+				<section></section>
 			</div>
 		</>
 	);

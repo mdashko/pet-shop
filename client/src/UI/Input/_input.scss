@@ -1,0 +1,12 @@
+@import "../../scss/globals";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.input {
+	width: 15em;
+	height: 2.5em;
+	border-radius: 1em;
+	border: 0.05em solid $orangeColor;
+	padding: 0 1em;
+	margin: 0.5em 0;
+}

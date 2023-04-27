@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { colors, fonts } from "../helpers";
+import { colors, fonts } from "../../helpers";
 
 export const Text = ({
 	color,
@@ -29,7 +29,7 @@ export const Text = ({
 		transition: "all 0.5s ease-out",
 	};
 	return (
-		<span
+		<span className="text"
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			style={

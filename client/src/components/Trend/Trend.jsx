@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "../UI/Text";
+import { Text } from "../../UI/Text/Text";
 
 export const Trend = ({ image, heading, preHeading }) => {
 	return (
