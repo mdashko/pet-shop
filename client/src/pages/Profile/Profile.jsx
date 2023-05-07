@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Text } from "../../UI/Text/Text";
 import { Button } from "../../UI/Button/Button";
 import { images } from "../../images";
 
-export const Profile = ({}) => {
-	const handleLogout = () => {
-		localStorage.removeItem("token");
-		window.location.reload();
+export const Profile = () => {
+	const navigate = useNavigate();
+	const handleLogout = (e) => {
+		e.preventDefault();
+		localStorage.removeItem("userInfo");
+		navigate("/");
 	};
 	return (
 		<>
@@ -24,7 +27,7 @@ export const Profile = ({}) => {
 						margin="0.5em 0 "
 						size="2.5em"
 					>
-						Marta Dashko
+					marta dashko
 					</Text>
 					<Text
 						color="grayColor"
@@ -33,7 +36,7 @@ export const Profile = ({}) => {
 						size="0.9em"
 						margin="0 0.2em"
 					>
-						martadashko@mail.com
+					nghghgh
 					</Text>
 					<Button
 						color="barkBlueColor"

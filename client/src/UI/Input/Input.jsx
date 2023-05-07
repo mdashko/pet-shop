@@ -4,7 +4,8 @@ import { colors } from "../../helpers";
 export const Input = ({
 	placeholder,
 	type = "text",
-	required = false,
+	required = true,
+	value,
 	onChange,
 }) => {
 	return (
@@ -13,6 +14,7 @@ export const Input = ({
 			required={required}
 			placeholder={placeholder}
 			type={type}
+			value={value}
 			onChange={onChange}
 		/>
 	);

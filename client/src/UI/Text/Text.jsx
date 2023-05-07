@@ -29,7 +29,8 @@ export const Text = ({
 		transition: "all 0.5s ease-out",
 	};
 	return (
-		<span className="text"
+		<span
+			className="text"
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			style={

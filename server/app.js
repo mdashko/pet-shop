@@ -1,22 +1,19 @@
-require("dotenv").config();
-
 const express = require("express");
-const app = express();
-const cors = require("cors");
 const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
+const app = express();
+const dotenv = require("dotenv");
+const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
-//db connection
+dotenv.config();
+
 connection();
-
-//middleware
 app.use(express.json());
-app.use(cors());
 
-//routes
 app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
 
-const port = process.env.PORT || 5001;
+app.use(notFound);
+app.use(errorHandler)
+
+const port = process.env.PORT || 5050;
 app.listen(port, () => console.log(`Listening on port ${port}`));

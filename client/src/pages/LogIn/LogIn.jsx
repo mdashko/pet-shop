@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -7,20 +7,20 @@ import { Text } from "../../UI/Text/Text";
 import { Button } from "../../UI/Button/Button";
 import { Input } from "../../UI/Input/Input";
 
-export const LogIn = () => {
+export const LogIn = ({ history }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [error, setError] = useState("");
-
-	// const [user, setUser] = useState({});
-
-	// function getToken() {
-	// 	const tokenString = localStorage.getItem("token");
-	// 	const userToken = JSON.parse(tokenString);
-	// 	return userToken?.token;
-	// }
+	const [error, setError] = useState(false);
 
 	const navigate = useNavigate();
+
+	// useEffect(() => {
+	// 	const userInfo = localStorage.getItem("userInfo", JSON.stringify(data));
+
+	// 	if (userInfo) {
+
+	// 	}
+	// }, [history]);
 
 	const handleEmail = (e) => setEmail(e.target.value);
 	const handlePassword = (e) => setPassword(e.target.value);
@@ -28,22 +28,22 @@ export const LogIn = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5001/api/auth";
-			const { data: res } = await axios.post(url, {
-				email: email,
-				password: password,
-			});
-			localStorage.setItem("token", res.data);
-			// setUser(getToken());
+			const config = {
+				headers: {
+					"Content-type": "application/json",
+				},
+			};
+
+			const { data } = await axios.post(
+				"/api/users/login",
+				{ email, password },
+				config
+			);
+			console.log(data);
+			localStorage.setItem("userInfo", JSON.stringify(data));
 			navigate("/");
 		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
+			setError(error.response.data.message);
 		}
 	};
 
@@ -67,6 +67,7 @@ export const LogIn = () => {
 					<Input
 						placeholder="Enter email..."
 						required="true"
+						value={email}
 						onChange={handleEmail}
 					/>
 				</div>
@@ -78,6 +79,7 @@ export const LogIn = () => {
 						placeholder="Enter password..."
 						required="true"
 						type="password"
+						value={password}
 						onChange={handlePassword}
 					/>
 				</div>
@@ -105,7 +107,7 @@ export const LogIn = () => {
 						size="0.9em"
 						margin="0 0.2em"
 					>
-						Don't have account?
+						Don't have an account?
 					</Text>
 					<Link to="/SignUp">
 						<Text

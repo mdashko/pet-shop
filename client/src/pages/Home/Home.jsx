@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { Trend } from "../../components/Trend/Trend";
@@ -6,6 +6,10 @@ import { Text } from "../../UI/Text/Text";
 import { images } from "../../images";
 
 export const Home = () => {
+	// useEffect(() => {
+	// 	cons
+	// });
+
 	return (
 		<>
 			<Header />

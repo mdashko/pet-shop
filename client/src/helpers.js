@@ -26,3 +26,5 @@ export const routes = [
 	{ path: "/Explore", element: <Explore /> },
 	{ path: "/Profile", element: <Profile /> },
 ];
+
+
