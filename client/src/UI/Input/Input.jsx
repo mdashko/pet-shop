@@ -6,6 +6,7 @@ export const Input = ({
 	type = "text",
 	required = true,
 	value,
+	name,
 	onChange,
 }) => {
 	return (
@@ -15,6 +16,7 @@ export const Input = ({
 			placeholder={placeholder}
 			type={type}
 			value={value}
+			name={name}
 			onChange={onChange}
 		/>
 	);

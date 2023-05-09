@@ -1,51 +1,62 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../../features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { Text } from "../../UI/Text/Text";
 import { Button } from "../../UI/Button/Button";
 import { Input } from "../../UI/Input/Input";
 
-export const LogIn = ({ history }) => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [error, setError] = useState(false);
+export const LogIn = () => {
+	const [formData, setFormData] = useState({
+		email: "",
+		password: "",
+	});
+
+	const { email, password } = formData;
 
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	const userInfo = localStorage.getItem("userInfo", JSON.stringify(data));
+	const { user, isLoading, isError, isSuccess, message } = useSelector(
+		(state) => state.auth
+	);
 
-	// 	if (userInfo) {
-
-	// 	}
-	// }, [history]);
-
-	const handleEmail = (e) => setEmail(e.target.value);
-	const handlePassword = (e) => setPassword(e.target.value);
-
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const config = {
-				headers: {
-					"Content-type": "application/json",
-				},
-			};
-
-			const { data } = await axios.post(
-				"/api/users/login",
-				{ email, password },
-				config
-			);
-			console.log(data);
-			localStorage.setItem("userInfo", JSON.stringify(data));
-			navigate("/");
-		} catch (error) {
-			setError(error.response.data.message);
+	useEffect(() => {
+		if (isError) {
+			toast.error(message);
 		}
+
+		if (isSuccess || user) {
+			navigate("/");
+		}
+
+		dispatch(reset());
+	}, [user, isError, isSuccess, message, navigate, dispatch]);
+
+	const onChange = (e) => {
+		setFormData((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value,
+		}));
 	};
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+
+		const userData = {
+			email,
+			password,
+		};
+
+		dispatch(login(userData));
+	};
+
+	// if (isLoading) {
+	// 	return <Spinner />;
+	// }
 
 	return (
 		<>
@@ -66,9 +77,10 @@ export const LogIn = ({ history }) => {
 					</Text>
 					<Input
 						placeholder="Enter email..."
-						required="true"
+						name="email"
+						required={true}
 						value={email}
-						onChange={handleEmail}
+						onChange={onChange}
 					/>
 				</div>
 				<div className="logIn__input-container">
@@ -77,24 +89,14 @@ export const LogIn = ({ history }) => {
 					</Text>
 					<Input
 						placeholder="Enter password..."
-						required="true"
+						name="password"
+						required={true}
 						type="password"
 						value={password}
-						onChange={handlePassword}
+						onChange={onChange}
 					/>
 				</div>
-				{error && (
-					<Text
-						color="errorColor"
-						family="mainFonts"
-						weight="300"
-						size="0.9em"
-						margin="0 0.2em"
-					>
-						{error}
-					</Text>
-				)}
-				<Button color="orangeColor" margin="1em 0.5em" onClick={handleSubmit}>
+				<Button color="orangeColor" margin="1em 0.5em" onClick={onSubmit}>
 					<Text color="whiteColor" family="mainFonts" weight="600" margin="0">
 						Submit
 					</Text>
@@ -116,7 +118,7 @@ export const LogIn = ({ history }) => {
 							weight="300"
 							size="0.9em"
 							margin="0 0.2em"
-							underlined="true"
+							underlined={true}
 						>
 							Sign Up
 						</Text>
