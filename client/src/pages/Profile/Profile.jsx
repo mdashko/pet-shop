@@ -1,18 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../../components/Header/Header";
 import { Text } from "../../UI/Text/Text";
 import { Button } from "../../UI/Button/Button";
 import { images } from "../../images";
+import { logout } from "../../store/auth/authSlice";
 
 export const Profile = () => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const { user } = useSelector((state) => state.auth);
+
+	useEffect(() => {
+		if (!user) {
+			navigate("/login");
+		}
+	}, [user, navigate, dispatch]);
+
 	const handleLogout = (e) => {
 		e.preventDefault();
-		localStorage.removeItem("userInfo");
+		dispatch(logout());
 		navigate("/");
 	};
 	return (
 		<>
+			<Header />
 			<div className="profile">
 				<section className="profile__user-info">
 					<img
@@ -27,7 +41,7 @@ export const Profile = () => {
 						margin="0.5em 0 "
 						size="2.5em"
 					>
-					marta dashko
+						{user && user.fullName}
 					</Text>
 					<Text
 						color="grayColor"
@@ -36,7 +50,7 @@ export const Profile = () => {
 						size="0.9em"
 						margin="0 0.2em"
 					>
-					nghghgh
+						{user && user.email}
 					</Text>
 					<Button
 						color="barkBlueColor"

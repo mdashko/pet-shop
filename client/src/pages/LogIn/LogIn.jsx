@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login, reset } from "../../features/auth/authSlice";
+import { login, reset } from "../../store/auth/authSlice";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { Text } from "../../UI/Text/Text";
