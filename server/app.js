@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const cors = require("cors");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middlewares/errorMiddleware");
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 //app.use('/api/goals', require('./routes/goalRoutes'));
 app.use("/api/users", require("./routes/userRoutes"));
 
+app.use(cors());
 // Serve frontend
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "../client/build")));

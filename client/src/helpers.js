@@ -3,6 +3,7 @@ import { Explore } from "./pages/Explore/Explore";
 import { LogIn } from "./pages/LogIn/LogIn";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { Profile } from "./pages/Profile/Profile";
+import { Favourites } from "./pages/Favourites/Favourites";
 
 export const fonts = {
 	mainFonts: ["Josefin Sans", "sans-serif"],
@@ -24,7 +25,6 @@ export const routes = [
 	{ path: "/LogIn", element: <LogIn /> },
 	{ path: "/SignUp", element: <SignUp /> },
 	{ path: "/Explore", element: <Explore /> },
+	{ path: "/Favourites", element: <Favourites /> },
 	{ path: "/Profile", element: <Profile /> },
 ];
-
-

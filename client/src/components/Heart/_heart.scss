@@ -1,0 +1,12 @@
+@import "../../scss/globals";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.heart {
+	background-color: transparent;
+	border: none;
+	padding: 0.5em;
+	img {
+		height: 2.5em;
+	}
+}

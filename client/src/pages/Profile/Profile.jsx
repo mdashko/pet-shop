@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
@@ -31,7 +31,7 @@ export const Profile = () => {
 				<section className="profile__user-info">
 					<img
 						className="profile__user-info_img"
-						src={images.userIcon}
+						src={images.userPic}
 						alt="user"
 					/>
 					<Text
@@ -57,7 +57,13 @@ export const Profile = () => {
 						margin="1em 0.5em"
 						onClick={handleLogout}
 					>
-						<Text color="whiteColor" family="mainFonts" weight="600" margin="0">
+						<Text
+							color="whiteColor"
+							family="mainFonts"
+							size="1.5em"
+							weight="600"
+							margin="0"
+						>
 							Log out
 						</Text>
 					</Button>

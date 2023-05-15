@@ -54,29 +54,48 @@ export const Header = () => {
 						</Text>
 					</a>
 				</Link>
-				<a href="">
-					<Text
-						color="mainColor"
-						family="mainFonts"
-						weight="600"
-						margin="0 1em"
-						hover="true"
-					>
-						Favourite
-					</Text>
-				</a>
+				<Link to="/Favourites">
+					<a href="">
+						<Text
+							color="mainColor"
+							family="mainFonts"
+							weight="600"
+							margin="0 1em"
+							hover="true"
+						>
+							Favourite
+						</Text>
+					</a>
+				</Link>
 			</div>
 			{user ? (
-				<div className="header__user-button">
+				<div className="header__user-buttons">
+					<Link to="/Profile">
+						<Button color="whiteColor" margin="0">
+							<div className="header__user-buttons__content">
+								<img src={images.userIcon} alt= {user.fullName} />
+								<Text
+									color="mainColor"
+									family="mainFonts"
+									size="2em"
+									weight="600"
+									margin="0"
+								>
+									{user.fullName}
+								</Text>
+							</div>
+						</Button>
+					</Link>
 					<Link to="/Profile">
 						<Button color="barkBlueColor" margin="auto">
 							<Text
 								color="whiteColor"
 								family="mainFonts"
+								size="1.5em"
 								weight="600"
 								margin="0"
 							>
-								{user.fullName}
+								Cart()
 							</Text>
 						</Button>
 					</Link>
@@ -88,6 +107,7 @@ export const Header = () => {
 							<Text
 								color="whiteColor"
 								family="mainFonts"
+								size="1.5em"
 								weight="600"
 								margin="0"
 							>
@@ -100,6 +120,7 @@ export const Header = () => {
 							<Text
 								color="whiteColor"
 								family="mainFonts"
+								size="1.5em"
 								weight="600"
 								margin="0"
 							>

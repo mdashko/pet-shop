@@ -19,4 +19,8 @@
 		display: flex;
 		@include center-elements;
 	}
+	&__user-buttons {
+		display: flex;
+		@include center-elements;
+	}
 }

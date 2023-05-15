@@ -1,0 +1,11 @@
+@import "../../scss/globals";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.favouriteProduct {
+	display: flex;
+	margin: 0.5em;
+	box-sizing: border-box;
+	border: 1px solid #f7a593;
+	border-radius: 18px;
+}

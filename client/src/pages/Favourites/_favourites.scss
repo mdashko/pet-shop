@@ -1,0 +1,10 @@
+@import "../../scss/globals";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.favourites {
+	display: flex;
+	flex-direction: column;
+	@include center-elements;
+	
+}
