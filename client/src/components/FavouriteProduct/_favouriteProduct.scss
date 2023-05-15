@@ -4,8 +4,18 @@
 
 .favouriteProduct {
 	display: flex;
-	margin: 0.5em;
-	box-sizing: border-box;
-	border: 1px solid #f7a593;
-	border-radius: 18px;
+	width: 70%;
+	@include center-elements;
+	justify-content: space-around;
+	&__img-container {
+		width: 50%;
+		display: flex;
+		@include center-elements;
+	}
+	&__descr-container {
+		width: 50%;
+		display: flex;
+		@include center-elements;
+		justify-content: flex-start;
+	}
 }

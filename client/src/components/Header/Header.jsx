@@ -30,7 +30,7 @@ export const Header = () => {
 				</div>
 			</Link>
 			<div className="header__navbar">
-				<a href="">
+				<a href="/Shop">
 					<Text
 						color="mainColor"
 						family="mainFonts"

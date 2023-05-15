@@ -1,0 +1,22 @@
+@import "../../scss/globals";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.product {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 0.3em solid $grayColor;
+	border-radius: 1em;
+	padding: 0.5em;
+	width: 20%;
+	@include center-elements;
+	&__img-container {
+		overflow: hidden;
+	}
+	&__descr-container {
+		display: flex;
+		width: 100%;
+		justify-content: space-around;
+	}
+}

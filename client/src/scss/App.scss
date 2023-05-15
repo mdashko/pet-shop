@@ -3,9 +3,11 @@
 @use "../pages/SignUp/signup";
 @use "../pages/LogIn/login";
 @use "../pages/Home/home";
+@use "../pages/Shop/shop";
 @use "../components/Trend/trend";
 @use "../components/Heart/heart";
 @use "../components/FavouriteProduct/favouriteProduct";
+@use "../components/Product/product";
 @use "../pages/Explore/explore";
 @use "../pages/Favourites/favourites";
 @use "../UI/SearchBar/searchbar";

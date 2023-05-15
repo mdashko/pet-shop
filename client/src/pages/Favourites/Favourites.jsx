@@ -6,11 +6,11 @@ export const Favourites = () => {
 	return (
 		<>
 			<Header />
-			<div className="favourites">
+			<section className="favourites">
 				<section className="favourites__list">
 					<FavouriteProduct />
 				</section>
-			</div>
+			</section>
 		</>
 	);
 };
