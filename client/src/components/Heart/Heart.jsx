@@ -1,12 +1,9 @@
 import React from "react";
 import { images } from "../../images";
 
-export const Heart = () => {
-	const [isClicked, setIsClicked] = React.useState(false);
-
-	const handleClick = () => setIsClicked(!isClicked);
+export const Heart = ({ isClicked, onClick }) => {
 	return (
-		<button className="heart" onClick={handleClick}>
+		<button className="heart" onClick={onClick}>
 			<img
 				src={isClicked ? images.heartFilled : images.heart}
 				alt={isClicked ? "unlike" : "like"}

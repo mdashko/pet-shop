@@ -9,6 +9,7 @@ import userIcon from "./user-icon.svg";
 import heart from "./heart.png";
 import heartFilled from "./heart-filled.png";
 import testProduct from "./test-product.png";
+import testProduct2 from "./test-product2.png";
 export const images = {
 	dogIcon,
 	petFood,
@@ -21,4 +22,5 @@ export const images = {
 	heart,
 	heartFilled,
 	testProduct,
+	testProduct2,
 };

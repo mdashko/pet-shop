@@ -1,13 +1,23 @@
 import React from "react";
 import { Heart } from "../../components/Heart/Heart";
-import { images } from "../../images";
 import { Text } from "../../UI/Text/Text";
+import { FavouriteContext } from "../../contexts/FavouriteContext";
 
-export const Product = () => {
+export const Product = ({ id, name, image }) => {
+	const [isClicked, setIsClicked] = React.useState(false);
+
+	const { updateFavouriteProducts } = React.useContext(FavouriteContext);
+
+	const addToFavourites = () => {
+		setIsClicked(true);
+		const newProduct = { id: id, name: name };
+		updateFavouriteProducts(newProduct);
+	};
+
 	return (
 		<div className="product">
 			<div className="product__img-container">
-				<img src={images.testProduct} alt="" />
+				<img src={image} alt={name} />
 			</div>
 			<div className="product__descr-container">
 				<Text
@@ -17,9 +27,9 @@ export const Product = () => {
 					margin="0.5em 0"
 					size="1.4em"
 				>
-					Product 1
+					{name}
 				</Text>
-				<Heart />
+				<Heart isClicked={isClicked} onClick={addToFavourites} />
 			</div>
 		</div>
 	);

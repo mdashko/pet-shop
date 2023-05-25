@@ -4,6 +4,7 @@
 
 .favouriteProduct {
 	display: flex;
+	margin: 1em 0;
 	width: 70%;
 	@include center-elements;
 	justify-content: space-around;

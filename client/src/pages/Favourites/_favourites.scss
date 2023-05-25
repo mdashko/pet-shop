@@ -9,6 +9,11 @@
 	&__list {
 		width: 70%;
 		display: flex;
+		flex-direction: column;
+		@include center-elements;
+	}
+	&__empty{
+		display: flex;
 		@include center-elements;
 	}
 }

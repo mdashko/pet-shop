@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Heart } from "../../components/Heart/Heart";
-import { images } from "../../images";
 import { Text } from "../../UI/Text/Text";
+import { images } from "../../images";
+import { FavouriteContext } from "../../contexts/FavouriteContext";
 
-export const FavouriteProduct = () => {
+export const FavouriteProduct = ({ id, name, image }) => {
+	const [isClicked, setIsClicked] = React.useState(true);
+	const { removeFromFavouriteProducts } = React.useContext(FavouriteContext);
+
+	const removeFromFavourites = () => {
+		setIsClicked(false);
+		removeFromFavouriteProducts(id);
+	};
+
 	return (
 		<div className="favouriteProduct">
 			<div className="favouriteProduct__img-container">
-				<img src={images.testProduct} alt="" />
+				<img src={images.testProduct2} alt={name} />
 			</div>
 			<div className="favouriteProduct__descr-container">
 				<Text
@@ -17,9 +26,9 @@ export const FavouriteProduct = () => {
 					margin="0 0.5em"
 					size="1.4em"
 				>
-					Product 1
+					{name}
 				</Text>
-				<Heart />
+				<Heart isClicked={isClicked} onClick={removeFromFavourites} />
 			</div>
 		</div>
 	);
