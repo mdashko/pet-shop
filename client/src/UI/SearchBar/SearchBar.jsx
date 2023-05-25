@@ -5,7 +5,7 @@ import { colors, fonts } from "../../helpers";
 export const SearchBar = () => {
 	return (
 		<div className="searchBar">
-			<input
+			<input onChange={}
 				style={{
 					backgroundImage: `url(${images.glass})`,
 					backgroundRepeat: "no-repeat",

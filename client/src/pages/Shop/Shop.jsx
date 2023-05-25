@@ -5,8 +5,6 @@ import { images } from "../../images";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 
 export const Shop = () => {
-
-
 	return (
 		<>
 			<Header />
@@ -16,7 +14,6 @@ export const Shop = () => {
 					<Product id="2" name="Product 2" image={images.testProduct2} />
 				</section>
 			</section>
-			;
 		</>
 	);
 };

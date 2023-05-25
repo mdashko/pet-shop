@@ -4,20 +4,24 @@ import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { routes } from "../helpers";
 import { FavouriteProvider } from "../contexts/FavouriteContext";
-
+import { ProductContext } from "../contexts/ProductContext";
 export const Pages = () => {
 	return (
 		<>
-			<FavouriteProvider>
-				<BrowserRouter>
-					<Routes>
-						{routes.map((route) => {
-							return <Route path={route.path} exact element={route.element} />;
-						})}
-					</Routes>
-				</BrowserRouter>
-			</FavouriteProvider>
-			<ToastContainer />
+			<ProductContext>
+				<FavouriteProvider>
+					<BrowserRouter>
+						<Routes>
+							{routes.map((route) => {
+								return (
+									<Route path={route.path} exact element={route.element} />
+								);
+							})}
+						</Routes>
+					</BrowserRouter>
+				</FavouriteProvider>
+				<ToastContainer />
+			</ProductContext>
 		</>
 	);
 };

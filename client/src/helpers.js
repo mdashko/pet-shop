@@ -3,6 +3,7 @@ import { Explore } from "./pages/Explore/Explore";
 import { LogIn } from "./pages/LogIn/LogIn";
 import { SignUp } from "./pages/SignUp/SignUp";
 import { Profile } from "./pages/Profile/Profile";
+import { Cart } from "./pages/Cart/Cart";
 import { Favourites } from "./pages/Favourites/Favourites";
 import { Shop } from "./pages/Shop/Shop";
 
@@ -29,4 +30,5 @@ export const routes = [
 	{ path: "/Explore", element: <Explore /> },
 	{ path: "/Favourites", element: <Favourites /> },
 	{ path: "/Profile", element: <Profile /> },
+	{ path: "/Cart", element: <Cart /> },
 ];

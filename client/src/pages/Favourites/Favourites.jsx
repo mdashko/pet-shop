@@ -8,10 +8,6 @@ export const Favourites = () => {
 	const { favouriteProducts} =
 		React.useContext(FavouriteContext);
 
-	// React.useEffect(() => {
-	// 	const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
-		
-	// }, []);
 
 	return (
 		<>

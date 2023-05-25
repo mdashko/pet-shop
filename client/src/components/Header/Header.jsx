@@ -86,7 +86,7 @@ export const Header = () => {
 							</div>
 						</Button>
 					</Link>
-					<Link to="/Profile">
+					<Link to="/Cart">
 						<Button color="barkBlueColor" margin="auto">
 							<Text
 								color="whiteColor"
